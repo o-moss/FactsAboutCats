@@ -19,7 +19,7 @@ public class Data {
         this.upvotes = upvotes;
     }
 
-    public String getId(){
+    public String getId() {
         return id;
     }
 

@@ -14,12 +14,13 @@ public class GetRequest {
     public static ObjectMapper mapper = new ObjectMapper();
 
     public static void main(String[] args) {
-        try(CloseableHttpClient httpClient = HttpClients.createDefault()) {
+        try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
 
             HttpGet request = new HttpGet(URL);
 
-            try(CloseableHttpResponse response = httpClient.execute(request)) {
-                List<Data> responseList = mapper.readValue(response.getEntity().getContent(), new TypeReference<>() {});
+            try (CloseableHttpResponse response = httpClient.execute(request)) {
+                List<Data> responseList = mapper.readValue(response.getEntity().getContent(), new TypeReference<>() {
+                });
                 responseList.stream()
                         .filter(i -> i.getUpvotes() != null)
                         .filter(i -> i.getUpvotes() != "0")
